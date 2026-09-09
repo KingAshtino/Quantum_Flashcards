@@ -38,7 +38,7 @@ export function StudyCard({
           </p>
           <div className="flex flex-1 items-center justify-center px-2">
             <h2 className="text-center font-heading text-3xl font-medium tracking-tight text-balance sm:text-4xl">
-              {term}
+              <MathText text={term} />
             </h2>
           </div>
           <p className="text-center text-sm text-muted-foreground">

@@ -1,4 +1,5 @@
 export type CardCategory =
+  | "Notation conventions"
   | "Complex numbers"
   | "Vector spaces"
   | "Dirac notation"
@@ -24,8 +25,78 @@ export const quantumCh1Terms: Deck = {
   id: "quantum-ch1-terms",
   title: "Quantum CH 1 Terms",
   subtitle:
-    "Math review for quantum mechanics: complex numbers, Hilbert spaces, Dirac notation, operators, and the first measurement postulates.",
+    "Math review for quantum mechanics: notation conventions, complex numbers, Hilbert spaces, Dirac notation, operators, and the first measurement postulates.",
   cards: [
+    {
+      id: "subset-inclusion",
+      category: "Notation conventions",
+      term: "Inclusion $\\subset$",
+      definition:
+        "The inclusion symbol $\\subset$ does not exclude equality: $A \\subset A$ is true. Many textbooks use $\\subset$ the same way others use $\\subseteq$.",
+    },
+    {
+      id: "proper-inclusion",
+      category: "Notation conventions",
+      term: "Proper inclusion $\\subsetneq$",
+      definition:
+        "Write $A \\subsetneq B$ when the inclusion is proper: $A$ is contained in $B$ and $A \\neq B$.",
+    },
+    {
+      id: "natural-numbers",
+      category: "Notation conventions",
+      term: "Natural numbers $\\mathbb{N}$",
+      definition:
+        "In these notes, zero is a natural number: $\\mathbb{N} = \\{0, 1, 2, \\dots\\}$. Textbooks differ on this, so it is fixed once and for all here.",
+    },
+    {
+      id: "n-zero",
+      category: "Notation conventions",
+      term: "$\\mathbb{N}_0$",
+      definition:
+        "$\\mathbb{N}_0$ is synonymous with $\\mathbb{N}$ in these notes. The subscript $0$ only emphasizes that zero is included.",
+    },
+    {
+      id: "asterisk-removes-zero",
+      category: "Notation conventions",
+      term: "Asterisk $^*$ (on a number set)",
+      definition:
+        "A superscript asterisk removes the zero element from a set of numbers. If $S$ is a number set, $S^* = S \\setminus \\{0\\}$.",
+    },
+    {
+      id: "n-star",
+      category: "Notation conventions",
+      term: "Positive integers $\\mathbb{N}^*$",
+      definition:
+        "$\\mathbb{N}^* = \\mathbb{N} \\setminus \\{0\\} = \\{1, 2, \\dots\\}$. These are the positive integers (naturals without zero).",
+    },
+    {
+      id: "r-star",
+      category: "Notation conventions",
+      term: "Nonzero reals $\\mathbb{R}^*$",
+      definition:
+        "$\\mathbb{R}^* = \\mathbb{R} \\setminus \\{0\\}$: all real numbers except zero.",
+    },
+    {
+      id: "superscript-plus",
+      category: "Notation conventions",
+      term: "Superscript $+$",
+      definition:
+        "A superscript $+$ selects the strictly positive elements of a number set. Example: $\\mathbb{R}^+ = \\{x \\in \\mathbb{R} : x > 0\\}$.",
+    },
+    {
+      id: "r-plus",
+      category: "Notation conventions",
+      term: "Positive reals $\\mathbb{R}^+$",
+      definition:
+        "$\\mathbb{R}^+ = \\{x \\in \\mathbb{R} : x > 0\\}$. Zero is not included.",
+    },
+    {
+      id: "r-plus-zero",
+      category: "Notation conventions",
+      term: "Nonnegative reals $\\mathbb{R}_0^+$",
+      definition:
+        "A further subscript $0$ adjoins zero to the positive elements: $\\mathbb{R}_0^+ = \\mathbb{R}^+ \\cup \\{0\\} = \\{x \\in \\mathbb{R} : x \\ge 0\\}$.",
+    },
     {
       id: "complex-number",
       category: "Complex numbers",

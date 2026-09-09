@@ -278,7 +278,9 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
               <Card>
                 <CardHeader className="border-b">
                   <div className="flex items-start justify-between gap-3">
-                    <CardTitle className="text-lg">{card.term}</CardTitle>
+                    <CardTitle className="text-lg">
+                      <MathText text={card.term} />
+                    </CardTitle>
                     <span className={badgeVariants({ variant: "secondary" })}>
                       {card.category}
                     </span>
