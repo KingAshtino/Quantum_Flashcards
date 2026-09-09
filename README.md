@@ -2,6 +2,10 @@
 
 A small study site of digital flashcards for **Quantum CH 1 Terms** — the math review that usually opens a first course in quantum mechanics (complex numbers, Hilbert spaces, Dirac notation, operators, and the first measurement postulates).
 
+**Study page:** https://kingashtino.github.io/Quantum_Flashcards/
+
+**Source:** https://github.com/KingAshtino/Quantum_Flashcards
+
 Cards flip, shuffle, and remember “knew it / still learning” marks in this browser. Equations render with KaTeX.
 
 ## Run locally
