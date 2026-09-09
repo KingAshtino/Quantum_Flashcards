@@ -13,6 +13,8 @@ npm run dev
 
 Open [http://localhost:43141](http://localhost:43141).
 
+`npm run dev` uses webpack. `npm run build && npm start` is the production server.
+
 Production build:
 
 ```bash

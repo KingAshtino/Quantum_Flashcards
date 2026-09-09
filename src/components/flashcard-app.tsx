@@ -1,8 +1,8 @@
 "use client";
 
 import { StudyCard } from "@/components/study-card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { badgeVariants } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import type { CardCategory, Deck, Flashcard } from "@/data/decks";
 import { MathText } from "@/lib/math-text";
 import {
@@ -29,7 +28,7 @@ import {
   Shuffle,
   X,
 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useState, type ButtonHTMLAttributes, type ReactNode } from "react";
 
 type View = "home" | "study" | "browse";
 type Filter = "all" | "unfamiliar" | CardCategory;
@@ -160,10 +159,10 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
     return (
       <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-5 px-4 py-6 sm:py-10">
         <div className="flex items-center justify-between gap-3">
-          <Button variant="ghost" size="sm" onClick={() => setView("home")}>
+          <ActionButton variant="ghost" size="sm" onClick={() => setView("home")}>
             <ArrowLeft />
             Deck
-          </Button>
+          </ActionButton>
           <div className="text-center">
             <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {deck.title}
@@ -172,26 +171,32 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
               {index + 1} / {queue.length}
             </p>
           </div>
-          <Button
+          <ActionButton
             variant="ghost"
             size="sm"
             onClick={() => startStudy(filter, true)}
           >
             <Shuffle />
             Shuffle
-          </Button>
+          </ActionButton>
         </div>
 
-        <Progress value={(counts.known / counts.total) * 100} />
+        <ProgressBar value={(counts.known / counts.total) * 100} />
 
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary">{current.category}</Badge>
-          <Badge
-            variant={status === "known" ? "default" : "outline"}
-            className="capitalize"
+          <span className={badgeVariants({ variant: "secondary" })}>
+            {current.category}
+          </span>
+          <span
+            className={cn(
+              badgeVariants({
+                variant: status === "known" ? "default" : "outline",
+              }),
+              "capitalize"
+            )}
           >
             {statusLabel(status)}
-          </Badge>
+          </span>
         </div>
 
         <StudyCard
@@ -203,26 +208,26 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
         />
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <Button variant="outline" size="lg" onClick={() => go(-1)}>
+          <ActionButton variant="outline" size="lg" onClick={() => go(-1)}>
             <ArrowLeft />
             Back
-          </Button>
-          <Button
+          </ActionButton>
+          <ActionButton
             variant="destructive"
             size="lg"
             onClick={() => mark("learning")}
           >
             <X />
             Still learning
-          </Button>
-          <Button size="lg" onClick={() => mark("known")}>
+          </ActionButton>
+          <ActionButton size="lg" onClick={() => mark("known")}>
             <Check />
             Knew it
-          </Button>
-          <Button variant="outline" size="lg" onClick={() => go(1)}>
+          </ActionButton>
+          <ActionButton variant="outline" size="lg" onClick={() => go(1)}>
             Next
             <ArrowRight />
-          </Button>
+          </ActionButton>
         </div>
         <p className="hidden text-center text-xs text-muted-foreground sm:block">
           Space flip · ← → navigate · 1 still learning · 2 knew it
@@ -239,10 +244,10 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
     return (
       <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-4 py-6 sm:py-10">
         <div className="flex items-center justify-between">
-          <Button variant="ghost" size="sm" onClick={() => setView("home")}>
+          <ActionButton variant="ghost" size="sm" onClick={() => setView("home")}>
             <ArrowLeft />
             Deck
-          </Button>
+          </ActionButton>
         </div>
         <div>
           <h1 className="font-heading text-3xl tracking-tight">{deck.title}</h1>
@@ -274,7 +279,9 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
                 <CardHeader className="border-b">
                   <div className="flex items-start justify-between gap-3">
                     <CardTitle className="text-lg">{card.term}</CardTitle>
-                    <Badge variant="secondary">{card.category}</Badge>
+                    <span className={badgeVariants({ variant: "secondary" })}>
+                      {card.category}
+                    </span>
                   </div>
                   <CardDescription>
                     {statusLabel(statusOf(progress, card.id))}
@@ -318,7 +325,7 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-4">
-          <Progress value={(counts.known / counts.total) * 100} />
+          <ProgressBar value={(counts.known / counts.total) * 100} />
           <div className="grid grid-cols-3 gap-3 text-center">
             <Stat label="New" value={counts.fresh} />
             <Stat label="Learning" value={counts.learning} />
@@ -328,11 +335,15 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
       </Card>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        <Button size="lg" className="h-12" onClick={() => startStudy("all")}>
+        <ActionButton
+          size="lg"
+          className="h-12"
+          onClick={() => startStudy("all")}
+        >
           <BookOpen />
           Study all {deck.cards.length} cards
-        </Button>
-        <Button
+        </ActionButton>
+        <ActionButton
           size="lg"
           variant="secondary"
           className="h-12"
@@ -341,16 +352,16 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
         >
           <Layers />
           Study unfamiliar only
-        </Button>
-        <Button
+        </ActionButton>
+        <ActionButton
           size="lg"
           variant="outline"
           className="h-12"
           onClick={() => setView("browse")}
         >
           Browse terms
-        </Button>
-        <Button
+        </ActionButton>
+        <ActionButton
           size="lg"
           variant="ghost"
           className="h-12"
@@ -358,7 +369,7 @@ export function FlashcardApp({ deck }: { deck: Deck }) {
         >
           <RotateCcw />
           Reset marks
-        </Button>
+        </ActionButton>
       </div>
 
       <section className="space-y-3">
@@ -417,5 +428,41 @@ function FilterChip({
     >
       {children}
     </button>
+  );
+}
+
+function ActionButton({
+  className,
+  variant = "default",
+  size = "default",
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: "default" | "outline" | "secondary" | "ghost" | "destructive" | "link";
+  size?: "default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg";
+}) {
+  return (
+    <button
+      type="button"
+      className={cn(buttonVariants({ variant, size }), className)}
+      {...props}
+    />
+  );
+}
+
+function ProgressBar({ value }: { value: number }) {
+  const clamped = Math.min(100, Math.max(0, value));
+  return (
+    <div
+      role="progressbar"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(clamped)}
+      className="h-1 w-full overflow-hidden rounded-full bg-muted"
+    >
+      <div
+        className="h-full bg-primary transition-all"
+        style={{ width: `${clamped}%` }}
+      />
+    </div>
   );
 }
