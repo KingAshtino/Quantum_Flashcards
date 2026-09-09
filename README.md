@@ -1,21 +1,24 @@
 # Quantum CH 1 Terms
 
-A small study site of digital flashcards for **Quantum CH 1 Terms** — the math review that usually opens a first course in quantum mechanics (complex numbers, Hilbert spaces, Dirac notation, operators, and the first measurement postulates).
+**Open the flashcards (no install):**  
+https://kingashtino.github.io/Quantum_Flashcards/
 
-**Study page:** https://kingashtino.github.io/Quantum_Flashcards/
+That is the study site. The GitHub repo page is only the source code; it will not run the cards in the browser.
 
-**Source:** https://github.com/KingAshtino/Quantum_Flashcards
+Source: https://github.com/KingAshtino/Quantum_Flashcards
 
 Cards flip, shuffle, and remember “knew it / still learning” marks in this browser. Equations render with KaTeX.
 
-## Run locally
+## Run locally (optional)
+
+Only needed if you want to edit the code on your computer:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:43141](http://localhost:43141).
+Then open [http://localhost:43141](http://localhost:43141).
 
 `npm run dev` uses webpack. `npm run build && npm start` is the production server.
 
