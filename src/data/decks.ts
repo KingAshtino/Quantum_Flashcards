@@ -42,6 +42,121 @@ export const quantumCh1Terms: Deck = {
         "Write $A \\subsetneq B$ when the inclusion is proper: $A$ is contained in $B$ and $A \\neq B$.",
     },
     {
+      id: "implies",
+      category: "Notation conventions",
+      term: "Implication $\\implies$",
+      definition:
+        "$P \\implies Q$ means $P$ implies $Q$: if $P$ is true, then $Q$ is true.",
+    },
+    {
+      id: "logical-and",
+      category: "Notation conventions",
+      term: "And $\\wedge$",
+      definition:
+        "$P \\wedge Q$ is the conjunction of $P$ and $Q$: both statements are true.",
+    },
+    {
+      id: "logical-or",
+      category: "Notation conventions",
+      term: "Or $\\vee$",
+      definition:
+        "$P \\vee Q$ is the disjunction of $P$ and $Q$: at least one of the statements is true.",
+    },
+    {
+      id: "iff",
+      category: "Notation conventions",
+      term: "If and only if $\\iff$",
+      definition:
+        "$P \\iff Q$ means $P$ if and only if $Q$: each implies the other, so they are equivalent.",
+    },
+    {
+      id: "forall",
+      category: "Notation conventions",
+      term: "For all $\\forall$",
+      definition:
+        "$\\forall$ is the universal quantifier: $\\forall x \\in S,\\, P(x)$ means $P(x)$ holds for every $x$ in $S$.",
+    },
+    {
+      id: "exists",
+      category: "Notation conventions",
+      term: "Exists $\\exists$",
+      definition:
+        "$\\exists$ is the existential quantifier: $\\exists x \\in S$ such that $P(x)$ means there is at least one $x$ in $S$ for which $P(x)$ is true.",
+    },
+    {
+      id: "such-that",
+      category: "Notation conventions",
+      term: "Such that $|$ or $:$",
+      definition:
+        "In set-builder notation, $|$ or $:$ is read “such that.” Example: $\\{x \\in \\mathbb{R} : x > 0\\}$ is the set of $x$ in $\\mathbb{R}$ such that $x > 0$.",
+    },
+    {
+      id: "element-of",
+      category: "Notation conventions",
+      term: "Element of $\\in$",
+      definition:
+        "$x \\in A$ means $x$ is an element of the set $A$. Example: $x \\in \\mathbb{R}$ says $x$ is a real number.",
+    },
+    {
+      id: "intersection",
+      category: "Notation conventions",
+      term: "Intersection $\\cap$",
+      definition:
+        "$A \\cap B$ is the set of elements that belong to both $A$ and $B$.",
+      extra: "Example: $[0,2] \\cap (-\\infty, 1) = [0,1)$.",
+    },
+    {
+      id: "union",
+      category: "Notation conventions",
+      term: "Union $\\cup$",
+      definition:
+        "$A \\cup B$ is the set of elements that belong to $A$ or $B$ (or both).",
+      extra: "Example: $[0,2] \\cup (1,3) = [0,3]$.",
+    },
+    {
+      id: "set-difference",
+      category: "Notation conventions",
+      term: "Set difference $\\setminus$",
+      definition:
+        "$A \\setminus B$ is the set of elements that are in $A$ but not in $B$.",
+      extra: "Example: $\\{0,1,2,3\\} \\setminus \\{1,3,4\\} = \\{0,2\\}$.",
+    },
+    {
+      id: "integers",
+      category: "Notation conventions",
+      term: "Integers $\\mathbb{Z}$",
+      definition:
+        "$\\mathbb{Z} = \\{\\dots, -2, -1, 0, 1, 2, \\dots\\}$ is the set of all integers.",
+    },
+    {
+      id: "rationals",
+      category: "Notation conventions",
+      term: "Rationals $\\mathbb{Q}$",
+      definition:
+        "$\\mathbb{Q}$ is the set of rational numbers: fractions $p/q$ with $p \\in \\mathbb{Z}$ and $q \\in \\mathbb{Z}$, $q \\neq 0$.",
+    },
+    {
+      id: "reals",
+      category: "Notation conventions",
+      term: "Reals $\\mathbb{R}$",
+      definition:
+        "$\\mathbb{R}$ is the set of real numbers: all points on the number line, including irrationals such as $\\sqrt{2}$ and $\\pi$.",
+    },
+    {
+      id: "complex-set",
+      category: "Notation conventions",
+      term: "Complex numbers $\\mathbb{C}$",
+      definition:
+        "$\\mathbb{C}$ is the set of complex numbers $z = x + iy$ with $x,y \\in \\mathbb{R}$.",
+    },
+    {
+      id: "number-set-chain",
+      category: "Notation conventions",
+      term: "$\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R} \\subset \\mathbb{C}$",
+      definition:
+        "The standard number sets nest: naturals sit inside the integers, then rationals, reals, and complex numbers. In these notes $\\subset$ allows equality of a set with itself, but this chain is a proper inclusion at each step.",
+    },
+    {
       id: "natural-numbers",
       category: "Notation conventions",
       term: "Natural numbers $\\mathbb{N}$",
